@@ -90,7 +90,9 @@ class BookInStock
     price = price.to_s
     puts price
     decloc = /[.]/ =~ price
-    decimalp = price.length - decloc
+    if decloc != nil
+      decimalp = price.length - decloc
+    end
     puts decimalp
     if decimalp >= 2
       price = price.round(2)
@@ -103,3 +105,4 @@ class BookInStock
   end
 end
 book= BookInStock.new("isbn", 30)
+puts book.price_as_string
